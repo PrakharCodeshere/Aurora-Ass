@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { getUserCount } from '../app/utils';
 
 const UserCountButton = () => {
   
   const [userCount, setUserCount] = useState(null);
 
-  const handleGetUserCount = () => {
-   
-    const fetchedUserCount = 42; 
-    setUserCount(fetchedUserCount);
+
+  const handleGetUserCount = async () => {
+      const fetchedUserCount = await getUserCount();
+      setUserCount(fetchedUserCount);
   };
 
   return (

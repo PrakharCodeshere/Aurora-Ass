@@ -16,6 +16,7 @@ export default function GetUserForm() {
     try {
       const user = await getUser(userId);
       setUserDetails(user);
+      console.log("User Details:", userDetails);
     } catch (err) {
       setError("Failed to fetch user details. Please try again.");
       console.error(err);
@@ -60,9 +61,9 @@ export default function GetUserForm() {
       {userDetails && (
         <div className="mt-4 p-4 border-t border-black">
           <h3 className="text-lg font-bold">User Details</h3>
-          <p>ID: {userDetails.id}</p>
-          <p>Name: {userDetails.name}</p>
-          <p>Favorite Number: {userDetails.favNumber}</p>
+          <p>ID: {userDetails[0].toString()}</p>
+          <p>Name: {userDetails[1]}</p>
+          <p>Favorite Number: {userDetails[2].toString()}</p>
         </div>
       )}
     </div>
